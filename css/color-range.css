@@ -1,0 +1,199 @@
+#color-range-container {
+    position: absolute;
+    right: 10px;
+}
+
+#color-range-container div {
+    overflow: hidden;
+}
+
+#color-range-container .cr-button {
+    width: 100%;
+    height: 50px;
+    margin-bottom: .5rem;
+
+    font-size: 1.5rem;
+    color: rgba(255,255,255,.5);
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 50px;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    transition: 200ms ease-in-out;
+}
+
+#color-range-container .cr-button:hover {
+    color: rgba(255,255,255,1);
+    text-shadow: 0 0 5px white;
+    border: 2px solid rgba(255,255,255,1);
+    box-shadow: 0 0 10px white;
+}
+
+#color-range-container .cr-button.selected {
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+}
+
+/* Color Range < Btn 
+==================================================================*/
+#color-range-button {
+    position: absolute;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 100%;
+
+    transition: 200ms ease-in-out;
+}
+
+#color-range-button:hover {
+    color: black;
+
+    background-color: rgb(255,255,255);
+    border: 2px solid black;
+    box-shadow: 0 0 5px white;
+}
+
+#color-range-button:active {
+    filter: brightness(.3);
+
+    transition: 100ms ease-in-out;
+}
+
+#color-range-button span {
+    font-size: 2rem;
+}
+
+#color-range-button.selected {
+    transform: rotate(180deg);
+}
+
+/* Color Range Box Btn 
+==================================================================*/
+#color-range-box-btn, #color-range-box-slider {
+    background-color: rgba(0,0,0,.5);
+    border-radius: 10px;
+
+    z-index: 20;
+}
+
+#color-range-box-btn {
+    position: absolute;
+    right: calc(50px + 10px);
+    bottom: calc(-25px - (var(--height) / 2));
+
+    width: 300px;
+    --height: calc((50px * 6) + (.5rem * 6) + (2rem - .5rem));
+    height: var(--height);
+    padding: 1rem;
+
+    animation: box-btn-slide 300ms ease-in-out;
+}
+
+@keyframes box-btn-slide {
+    0% {
+        right: -300px;
+    }
+
+    100% {
+        right: calc(50px + 10px);;
+    }
+}
+
+/* Color Range Box Sliders
+==================================================================*/
+#color-range-box-slider {
+    position: absolute;
+    right: calc(50px + 300px + 20px);
+    bottom: calc((-236px / 2) + (-50px / 2));
+
+    width: 300px;
+    height: 236px;
+
+    color: white;
+
+    animation: box-slider 300ms ease-in-out;
+}
+
+#color-range-box-slider h2 {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+
+    text-align: center;
+    font-size: 1.7rem;
+    border-bottom: 1px solid white;
+}
+
+.cr-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 1rem;
+
+    color: white;
+}
+
+.cr-slider p { 
+    width: 50px;
+
+    margin-right: 1rem;
+
+    font-size: 2rem;
+}
+
+.cr-slider input {
+    width: calc(300px * .6);    
+}
+
+@keyframes box-slider {
+    0% {
+        right: calc(50px + 10px);
+    }
+
+    100% {
+        right: calc(50px + 300px + 20px);
+    }
+}
+
+@media screen and (max-width: 680px) {
+    #color-range-box-btn {
+        bottom: 50%;
+    }
+    
+    #color-range-box-slider {
+        right: calc(50px + 10px);
+        bottom: calc(-236px + -50px);
+    }
+
+    @keyframes box-slider {
+        0% {
+            right: calc(-300px - 20px);
+        }
+    
+        100% {
+            right: calc(50px + 10px);
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    #color-range-box-btn {
+        right: 0;
+    }
+    
+    #color-range-box-slider {
+        right: 0;
+    }
+}

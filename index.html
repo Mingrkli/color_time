@@ -3,8 +3,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Color Time</title>
+        <link rel="stylesheet" href="css/main-styles.css">
         <link rel="stylesheet" href="css/clock-styles.css">
+        <link rel="stylesheet" href="css/color-range.css">
     </head>
 
     <body>
@@ -29,11 +31,45 @@
             </div>  
 
             <div class="digital-clock">
-                <h3>00:00:00</h3>
+                <p></p>
+                <h3></h3>
             </div>
         </div>
         
+        <div id="color-range-container">
+            <div>
+                <button type="button" id="color-range-button"><span><</span></button>
+                <div id="color-range-box-btn" class="hidden">
+                    <button class="cr-button">Clock Base Color</button>
+                    <button class="cr-button">Clock Number Color</button>
+                    <button class="cr-button">Clock Outline Color</button>
+                    <button class="cr-button">Clock Glow Color</button>
+                    <button class="cr-button">Clock Tick Hand Color</button>
+                    <button class="cr-button">Clock Hands Color</button>
+                </div>
+                <div id="color-range-box-slider" class="hidden">
+                    <h2></h2>
+                    <div id="cr-sliders">
+                        <div class="cr-slider">
+                            <p></p>
+                            <input id="cr-slider-r" type="range" min="0" max="255" value="20">
+                        </div>
+
+                        <div class="cr-slider">
+                            <p></p>
+                            <input id="cr-slider-g" type="range" min="0" max="255" value="20">
+                        </div>
+
+                        <div class="cr-slider">
+                            <p></p>
+                            <input id="cr-slider-b" type="range" min="0" max="255" value="20">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="js/clock-scripts.js"></script>
+        <script src="js/color-range.js"></script>
     </body>
 </html>

@@ -1,23 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 :root {
     --c-bg: rgb(30,30,30);
-    --c-p: rgb(10,10,10);
 
-    --c-clock-ol: rgb(30,30,30);
-    --c-clock: rgb(0, 234, 255);
-    --c-clock-glow: rgb(0, 255, 247);
     --c-clock-glow-transparent: rgba(var(--c-clock-glow), 0.2);
-    --c-hand-sec: rgb(255,0,0);
-    --c-hands: rgb(10,10,10);
 }
 
 body {
-    font-family: 'Franklin Gothic Medium', sans-serif;
     background-color: var(--c-bg);
 }
 
@@ -29,8 +16,6 @@ div {
 =======================================================================================================*/
 #clock-container {
     position: relative;
-    /* background-color: red; */
-
     width: fit-content;
 }
 
@@ -38,8 +23,8 @@ div {
 =======================================================================================================*/
 .clock {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
 
     background-color: var(--c-clock);
     border: 2px solid var(--c-clock-ol);
@@ -64,8 +49,8 @@ div {
 .clock::after {
     content: '';
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -83,7 +68,7 @@ div {
     height: 100%;
 
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
 }
 
 /* Clock hands */
@@ -110,33 +95,52 @@ div {
 }
 
 .clock .hand.minute {
-    width: 5px;
+    width: 7px;
     height: 40%;
 
     background-color: var(--c-hands);
 }
 
 .clock .hand.hour {
-    width: 8px;
+    width: 10px;
     height: 30%;
 
     background-color: var(--c-hands);
+}
+
+@media screen and (max-width: 500px) {
+    .clock {
+        width: 250px;
+        height: 250px;
+    }
+
+    .clock .number {
+        font-size: 1.5rem;
+    }
 }
 
 /* Digital
 =======================================================================================================*/
 .digital-clock {
     position: absolute;
-    bottom: -20%;
+    bottom: calc(-1.5rem - 3rem - 1rem);
     left: 50%;
     transform: translateX(-50%);
 }
 
-.digital-clock h3 {
-    font-size: 3rem;
+.digital-clock p, .digital-clock h3 {
     color: var(--c-clock);
 
     animation: textPulse 3s ease-in-out infinite;
+}
+
+.digital-clock p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.digital-clock h3 {
+    font-size: 3rem;
 }
 
 @keyframes textPulse {

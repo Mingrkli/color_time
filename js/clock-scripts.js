@@ -5,6 +5,7 @@ const handHour = document.querySelector('.hand.hour');
 const handMin = document.querySelector('.hand.minute');
 const handSec = document.querySelector('.hand.second');
 // digital time
+const digitalDate = document.querySelector('.digital-clock p')
 const digitalNum = document.querySelector('.digital-clock h3');
 
 // rotate each number in the clock by 30
@@ -17,8 +18,14 @@ for (let i = 0; i < clockNumber.length; i++) {
 setInterval(setClock, 1000);
 
 function setClock () {
-    // Gets the current date for time
+    // Gets the current date
     const currentDate = new Date()
+    const month = currentDate.getMonth();
+    const date = currentDate.getDate();
+    const year = currentDate.getFullYear();
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
+    // time
     const sec = currentDate.getSeconds();
     const min = currentDate.getMinutes();
     const hr = currentDate.getHours();
@@ -32,8 +39,9 @@ function setClock () {
     setRotation(handMin, minutesRatio);
     setRotation(handHour, hoursRatio);
 
-    // Set digital time
-    digitalNum.innerHTML = `${hr}:${min}:${sec > 9 ? sec : '0' + sec}`
+    // Set digital date & time, will have 0 in second digit if lower than 10
+    digitalDate.innerHTML = `${monthNames[month]}/${date}/${year}`;
+    digitalNum.innerHTML = `${hr > 9 ? hr : '0' + hr}:${min > 9 ? min : '0' + min}:${sec > 9 ? sec : '0' + sec}`;
 }
 
 // sets the css --rotation
