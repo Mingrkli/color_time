@@ -153,6 +153,10 @@
     font-size: 2rem;
 }
 
+#color-range-box-slider span {
+    font-size: 1.5rem;
+}
+
 .cr-slider input {
     width: calc(300px * .6);    
 }
